@@ -1,0 +1,38 @@
+ASISTENCIA QR
+Sistema de control de asistencia por codigo QR
+
+
+QUE VA A INSTALAR ESTE PROGRAMA
+
+  - La aplicacion Asistencia QR.
+  - Node.js, si el equipo todavia no lo tiene. Se descarga de
+    nodejs.org, el sitio oficial del proyecto.
+  - Las librerias que la aplicacion necesita, con npm.
+  - Una base de datos SQLite vacia, con su esquema ya creado y un
+    usuario administrador listo para entrar.
+
+No hace falta instalar ni configurar ningun servidor de base de datos.
+Todo queda dentro de la carpeta que elija.
+
+
+CUANTO TARDA
+
+Entre uno y cinco minutos. Si hay que descargar Node.js puede tardar
+un poco mas, segun la conexion.
+
+
+LA PRIMERA VEZ QUE ENTRE
+
+El instalador genera una contrasena al azar para el usuario "admin" y
+la deja escrita en la carpeta data, en el archivo:
+
+    credenciales-iniciales.txt
+
+El sistema le pedira cambiarla la primera vez que entre. Cuando lo
+haya hecho, borre ese archivo.
+
+
+LICENCIA
+
+Programa de uso libre bajo licencia MIT. Puede usarlo, modificarlo y
+distribuirlo, incluso con fines comerciales, sin pagar nada.
