@@ -1,6 +1,7 @@
 /* =====================================================================
    Asistencia QR - hoja de estilos unica
-   Fondo negro, texto blanco, un solo acento. Sin dependencias externas.
+   Fondo negro y texto blanco. Sin color de marca: el enfasis se hace con
+   el blanco, la opacidad y el contraste. Sin dependencias externas.
    ===================================================================== */
 
 :root {
@@ -14,8 +15,9 @@
   --texto-medio: #9aa1ad;
   --texto-tenue: #626873;
 
-  --acento: #e8b33a;
-  --acento-suave: rgba(232, 179, 58, 0.12);
+  --acento: #ffffff;
+  --acento-suave: rgba(255, 255, 255, 0.10);
+  --acento-borde: rgba(255, 255, 255, 0.22);
   --verde: #3ecf8e;
   --verde-suave: rgba(62, 207, 142, 0.12);
   --rojo: #f2555a;
@@ -336,7 +338,7 @@ button, input, select, textarea { font-family: inherit; font-size: inherit; colo
   font-weight: 650;
 }
 
-.boton-principal:hover:not(:disabled) { background: #f2c250; border-color: #f2c250; }
+.boton-principal:hover:not(:disabled) { background: #d8dbe0; border-color: #d8dbe0; }
 .boton-peligro { color: var(--rojo); border-color: rgba(242, 85, 90, 0.35); }
 .boton-peligro:hover:not(:disabled) { background: var(--rojo-suave); }
 .boton-ancho { width: 100%; }
@@ -389,7 +391,7 @@ table.tabla tbody tr:last-child td { border-bottom: none; }
 .pastilla-entrada { background: var(--verde-suave); color: var(--verde); border-color: rgba(62, 207, 142, 0.28); }
 .pastilla-salida { background: var(--rojo-suave); color: var(--rojo); border-color: rgba(242, 85, 90, 0.28); }
 .pastilla-neutra { background: var(--panel-alto); color: var(--texto-medio); border-color: var(--borde-vivo); }
-.pastilla-acento { background: var(--acento-suave); color: var(--acento); border-color: rgba(232, 179, 58, 0.3); }
+.pastilla-acento { background: var(--acento-suave); color: var(--texto); border-color: var(--acento-borde); }
 .pastilla::before { content: ""; width: 5px; height: 5px; border-radius: 50%; background: currentColor; }
 .pastilla-sin-punto::before { display: none; }
 
@@ -566,7 +568,9 @@ table.tabla tbody tr:last-child td { border-bottom: none; }
 .grafica text { font-family: var(--fuente); fill: var(--texto-tenue); font-size: 10.5px; }
 .grafica .rejilla-linea { stroke: var(--borde); stroke-width: 1; }
 .grafica .barra-entrada { fill: var(--verde); }
-.grafica .barra-salida { fill: var(--acento); }
+.grafica .barra-salida { fill: var(--rojo); }
+/* Serie unica (marcaciones totales): sin significado de entrada ni salida. */
+.grafica .barra-total { fill: var(--texto); }
 
 .leyenda { display: flex; gap: 16px; align-items: center; font-size: 12px; color: var(--texto-medio); }
 .leyenda span { display: inline-flex; align-items: center; gap: 6px; }

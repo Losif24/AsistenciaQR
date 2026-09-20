@@ -94,24 +94,40 @@ export async function seedDemo({ days = 14 } = {}) {
   }
 
   const hoy = localDate();
+  const ahora = Number(localTime().slice(0, 2));
+
+  const aleatorio = (desde, hasta) =>
+    `${String(desde + Math.floor(Math.random() * (hasta - desde))).padStart(2, '0')}:${String(Math.floor(Math.random() * 60)).padStart(2, '0')}:00`;
+
+  const marcar = (id, tipo, fecha, hora) =>
+    run(
+      `INSERT INTO asistencia (personal_id, tipo, marcado_en, fecha_local, hora_local, origen, registrado_por)
+       VALUES (?, ?, ?, ?, ?, 'qr', 1)`,
+      [id, tipo, `${fecha}T${hora}Z`, fecha, hora],
+    );
+
   transaction(() => {
-    for (let d = days - 1; d >= 0; d -= 1) {
+    for (let d = days - 1; d >= 1; d -= 1) {
       const fecha = shiftDate(hoy, -d);
-      const finDeSemana = [0, 6].includes(new Date(`${fecha}T12:00:00Z`).getUTCDay());
-      if (finDeSemana) continue;
+      if ([0, 6].includes(new Date(`${fecha}T12:00:00Z`).getUTCDay())) continue;
 
       for (const id of inserted) {
         if (Math.random() < 0.12) continue; // ausencias ocasionales
-        const entrada = `0${6 + Math.floor(Math.random() * 3)}:${String(Math.floor(Math.random() * 60)).padStart(2, '0')}:00`;
-        const salida = `1${6 + Math.floor(Math.random() * 3)}:${String(Math.floor(Math.random() * 60)).padStart(2, '0')}:00`;
-        for (const [tipo, hora] of [['entrada', entrada], ['salida', salida]]) {
-          run(
-            `INSERT INTO asistencia (personal_id, tipo, marcado_en, fecha_local, hora_local, origen, registrado_por)
-             VALUES (?, ?, ?, ?, ?, 'qr', 1)`,
-            [id, tipo, `${fecha}T${hora}Z`, fecha, hora],
-          );
-        }
+        marcar(id, 'entrada', fecha, aleatorio(6, 9));
+        marcar(id, 'salida', fecha, aleatorio(16, 19));
       }
+    }
+
+    // El dia de hoy se genera aparte y solo hasta la hora actual: asi el panel
+    // muestra gente dentro de la sede, que es como se ve en uso real.
+    for (const id of inserted) {
+      if (Math.random() < 0.15) continue;
+      const entrada = aleatorio(6, Math.min(9, Math.max(7, ahora)));
+      if (entrada.slice(0, 2) >= String(ahora).padStart(2, '0')) continue;
+      marcar(id, 'entrada', hoy, entrada);
+
+      // Solo algunos han salido ya; el resto sigue adentro.
+      if (ahora >= 16 && Math.random() < 0.5) marcar(id, 'salida', hoy, aleatorio(16, Math.min(19, ahora + 1)));
     }
   });
 

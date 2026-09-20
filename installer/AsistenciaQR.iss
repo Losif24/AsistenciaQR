@@ -60,7 +60,8 @@ Name: "cortafuegos";  Description: "Permitir el acceso desde otros equipos de la
 Source: "..\src\*";        DestDir: "{app}\src";        Flags: ignoreversion recursesubdirs createallsubdirs
 Source: "..\public\*";     DestDir: "{app}\public";     Flags: ignoreversion recursesubdirs createallsubdirs
 Source: "..\scripts\*";    DestDir: "{app}\scripts";    Flags: ignoreversion recursesubdirs createallsubdirs
-Source: "..\docs\*";       DestDir: "{app}\docs";       Flags: ignoreversion recursesubdirs createallsubdirs skipifsourcedoesntexist
+; Las capturas son para la pagina del proyecto: no se empaquetan.
+Source: "..\docs\*";       DestDir: "{app}\docs";       Excludes: "capturas\*"; Flags: ignoreversion recursesubdirs createallsubdirs skipifsourcedoesntexist
 Source: "..\package.json";      DestDir: "{app}"; Flags: ignoreversion
 Source: "..\package-lock.json"; DestDir: "{app}"; Flags: ignoreversion
 Source: "..\.env.example";      DestDir: "{app}"; Flags: ignoreversion

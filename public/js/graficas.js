@@ -81,7 +81,7 @@ export function barrasPorHora(datos, ancho = 720) {
       const w = paso * 0.64;
       const alto = Math.max(0, MARGEN.arriba + areaAlto - y(d.total));
       const etiqueta = i % 3 === 0 ? `<text x="${x + w / 2}" y="${ALTO - 9}" text-anchor="middle">${String(i).padStart(2, '0')}</text>` : '';
-      return `<rect class="barra-salida" x="${x}" y="${y(d.total)}" width="${w}" height="${alto}" rx="2" opacity="${d.total ? 1 : 0.18}"><title>${String(i).padStart(2, '0')}:00 - ${d.total} marcaciones</title></rect>${etiqueta}`;
+      return `<rect class="barra-total" x="${x}" y="${y(d.total)}" width="${w}" height="${alto}" rx="2" opacity="${d.total ? 1 : 0.18}"><title>${String(i).padStart(2, '0')}:00 - ${d.total} marcaciones</title></rect>${etiqueta}`;
     })
     .join('');
 
@@ -111,5 +111,5 @@ export function barrasRanking(filas, { etiqueta = 'area', valor = 'total' } = {}
 export const leyendaEntradaSalida = `
   <div class="leyenda">
     <span><i style="background:var(--verde)"></i>Entradas</span>
-    <span><i style="background:var(--acento)"></i>Salidas</span>
+    <span><i style="background:var(--rojo)"></i>Salidas</span>
   </div>`;

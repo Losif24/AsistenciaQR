@@ -7,9 +7,9 @@
 **Control de asistencia por código QR.** Cada persona lleva su código,
 se escanea al entrar y al salir, y el reporte sale en un clic.
 
-[![Licencia MIT](https://img.shields.io/badge/licencia-MIT-e8b33a)](LICENSE)
-[![Node](https://img.shields.io/badge/Node.js-20%2B-3ecf8e)](https://nodejs.org)
-[![SQLite](https://img.shields.io/badge/base%20de%20datos-SQLite%20embebida-5b9dff)](#por-qué-sqlite)
+[![Licencia MIT](https://img.shields.io/badge/licencia-MIT-1e2128)](LICENSE)
+[![Node](https://img.shields.io/badge/Node.js-20%2B-1e2128)](https://nodejs.org)
+[![SQLite](https://img.shields.io/badge/base%20de%20datos-SQLite%20embebida-1e2128)](#por-qué-sqlite)
 
 </div>
 
@@ -28,6 +28,57 @@ para filtrar y exportar.
 No necesita internet, ni servidor de base de datos, ni cuenta en ningún
 servicio. Funciona en un equipo de recepción y, si se quiere, los demás
 equipos de la red local entran por el navegador.
+
+## Cómo se ve
+
+<div align="center">
+
+<img src="docs/capturas/panel.png" width="820" alt="Panel con los indicadores del día, entradas y salidas por día, marcaciones por área y por hora">
+
+**Panel.** Quiénes están dentro ahora, cuántos marcaron hoy y el movimiento del período.
+Se refresca solo, así que sirve de tablero en recepción.
+
+<br>
+
+<img src="docs/capturas/registrar-confirmacion.png" width="820" alt="Pantalla de registro con la confirmación de una salida">
+
+**Registrar.** Se escanea el carné y la confirmación aparece con el nombre y la hora.
+El sistema alterna entrada y salida solo; el operador no tiene que acordarse.
+
+<br>
+
+<table>
+<tr>
+<td width="50%"><img src="docs/capturas/personal.png" alt="Listado de personal"></td>
+<td width="50%"><img src="docs/capturas/codigo-qr.png" alt="Código QR de una persona listo para imprimir"></td>
+</tr>
+<tr>
+<td align="center"><b>Personal.</b> Alta, búsqueda y filtro por área.</td>
+<td align="center"><b>Carné.</b> El QR se imprime o se guarda en PDF.</td>
+</tr>
+<tr>
+<td><img src="docs/capturas/reportes.png" alt="Reportes filtrables con exportación"></td>
+<td><img src="docs/capturas/usuarios.png" alt="Usuarios del sistema y registro de auditoría"></td>
+</tr>
+<tr>
+<td align="center"><b>Reportes.</b> Filtros por fecha, tipo y área. Excel y CSV.</td>
+<td align="center"><b>Usuarios.</b> Roles y registro de auditoría.</td>
+</tr>
+</table>
+
+<br>
+
+<img src="docs/capturas/ingreso.png" width="820" alt="Pantalla de inicio de sesión">
+
+<br><br>
+
+<img src="docs/capturas/telefono.png" width="300" alt="La pantalla de registro en un teléfono">
+
+**En el teléfono.** La misma pantalla de registro, para marcar con la cámara del celular.
+
+</div>
+
+---
 
 ## Instalación
 
