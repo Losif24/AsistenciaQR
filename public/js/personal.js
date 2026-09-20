@@ -48,7 +48,7 @@ vista.innerHTML = `
   </div>
 
   <div class="modal-fondo" id="modalQr">
-    <div class="modal" style="max-width:380px">
+    <div class="modal modal-centrado">
       <div class="modal-cabeza"><h3>Codigo QR</h3><button class="cerrar" data-cerrar>&times;</button></div>
       <div class="modal-cuerpo centro" id="cuerpoQr"></div>
       <div class="modal-pie">

@@ -468,6 +468,16 @@ table.tabla tbody tr:last-child td { border-bottom: none; }
 .modal-cuerpo { padding: 20px; display: flex; flex-direction: column; gap: 14px; }
 .modal-pie { padding: 15px 20px; border-top: 1px solid var(--borde); display: flex; justify-content: flex-end; gap: 9px; }
 
+/* Variante para modales que muestran algo en vez de pedir datos.
+   El cuerpo es flex en columna, asi que sus hijos se estiran de lado a lado:
+   sin align-items la caja del QR ocupaba todo el ancho y el codigo quedaba
+   pegado a la izquierda. Aqui todo se cine a su contenido y se centra. */
+.modal-centrado { max-width: 380px; }
+.modal-centrado .modal-cabeza { position: relative; justify-content: center; }
+.modal-centrado .modal-cabeza .cerrar { position: absolute; right: 14px; top: 50%; transform: translateY(-50%); }
+.modal-centrado .modal-cuerpo { align-items: center; }
+.modal-centrado .modal-pie { justify-content: center; }
+
 .cerrar {
   background: none;
   border: none;
