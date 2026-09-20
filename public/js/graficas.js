@@ -110,6 +110,6 @@ export function barrasRanking(filas, { etiqueta = 'area', valor = 'total' } = {}
 
 export const leyendaEntradaSalida = `
   <div class="leyenda">
-    <span><i style="background:var(--verde)"></i>Entradas</span>
-    <span><i style="background:var(--rojo)"></i>Salidas</span>
+    <span><i style="background:var(--invertido)"></i>Entradas</span>
+    <span><i style="background:var(--texto-tenue)"></i>Salidas</span>
   </div>`;

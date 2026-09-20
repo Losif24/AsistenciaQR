@@ -18,11 +18,12 @@
   --acento: #ffffff;
   --acento-suave: rgba(255, 255, 255, 0.10);
   --acento-borde: rgba(255, 255, 255, 0.22);
-  --verde: #3ecf8e;
-  --verde-suave: rgba(62, 207, 142, 0.12);
-  --rojo: #f2555a;
-  --rojo-suave: rgba(242, 85, 90, 0.12);
-  --azul: #5b9dff;
+  /* Sin colores: entrada y salida se distinguen invirtiendo el bloque,
+     y el resto con grados de blanco sobre el negro. */
+  --invertido: #f2f4f7;
+  --tenue-10: rgba(255, 255, 255, 0.10);
+  --tenue-22: rgba(255, 255, 255, 0.22);
+  --tenue-45: rgba(255, 255, 255, 0.45);
 
   --radio: 10px;
   --radio-chico: 6px;
@@ -243,13 +244,14 @@ button, input, select, textarea { font-family: inherit; font-size: inherit; colo
   position: absolute;
   inset: 0 auto 0 0;
   width: 2px;
-  background: var(--acento);
-  opacity: 0.55;
+  background: var(--texto);
+  opacity: 0.5;
 }
 
-.indicador.verde::after { background: var(--verde); }
-.indicador.rojo::after { background: var(--rojo); }
-.indicador.azul::after { background: var(--azul); }
+/* Los cuatro indicadores se escalonan por opacidad, no por color. */
+.indicador.fuerte::after { opacity: 0.85; }
+.indicador.medio::after  { opacity: 0.65; }
+.indicador.suave::after  { opacity: 0.35; }
 
 .indicador-nombre {
   font-size: 11px;
@@ -295,7 +297,7 @@ button, input, select, textarea { font-family: inherit; font-size: inherit; colo
 }
 
 .campo input::placeholder, .entrada::placeholder { color: var(--texto-tenue); }
-.campo .error { font-size: 12px; color: var(--rojo); min-height: 16px; }
+.campo .error { font-size: 12px; color: var(--texto); min-height: 16px; }
 
 /* El desplegable nativo pinta su flecha como bloque gris sobre fondo oscuro. */
 .campo select, select.entrada {
@@ -339,8 +341,8 @@ button, input, select, textarea { font-family: inherit; font-size: inherit; colo
 }
 
 .boton-principal:hover:not(:disabled) { background: #d8dbe0; border-color: #d8dbe0; }
-.boton-peligro { color: var(--rojo); border-color: rgba(242, 85, 90, 0.35); }
-.boton-peligro:hover:not(:disabled) { background: var(--rojo-suave); }
+.boton-peligro { color: var(--texto-medio); border-color: var(--tenue-22); }
+.boton-peligro:hover:not(:disabled) { background: var(--tenue-10); color: var(--texto); }
 .boton-ancho { width: 100%; }
 .boton-chico { padding: 6px 10px; font-size: 12px; }
 
@@ -388,8 +390,8 @@ table.tabla tbody tr:last-child td { border-bottom: none; }
   white-space: nowrap;
 }
 
-.pastilla-entrada { background: var(--verde-suave); color: var(--verde); border-color: rgba(62, 207, 142, 0.28); }
-.pastilla-salida { background: var(--rojo-suave); color: var(--rojo); border-color: rgba(242, 85, 90, 0.28); }
+.pastilla-entrada { background: var(--invertido); color: var(--negro); border-color: var(--invertido); }
+.pastilla-salida { background: transparent; color: var(--texto-medio); border-color: var(--tenue-22); }
 .pastilla-neutra { background: var(--panel-alto); color: var(--texto-medio); border-color: var(--borde-vivo); }
 .pastilla-acento { background: var(--acento-suave); color: var(--texto); border-color: var(--acento-borde); }
 .pastilla::before { content: ""; width: 5px; height: 5px; border-radius: 50%; background: currentColor; }
@@ -419,8 +421,8 @@ table.tabla tbody tr:last-child td { border-bottom: none; }
   animation: entra 0.18s ease;
 }
 
-.aviso-ok { border-left-color: var(--verde); }
-.aviso-error { border-left-color: var(--rojo); }
+.aviso-ok { border-left-color: var(--texto); }
+.aviso-error { border-left-color: var(--texto-tenue); }
 .aviso-titulo { font-weight: 650; margin-bottom: 2px; }
 .aviso-texto { color: var(--texto-medio); font-size: 12.5px; }
 
@@ -556,8 +558,8 @@ table.tabla tbody tr:last-child td { border-bottom: none; }
   animation: entra 0.2s ease;
 }
 
-.resultado.entrada { border-color: rgba(62, 207, 142, 0.4); background: var(--verde-suave); }
-.resultado.salida { border-color: rgba(242, 85, 90, 0.4); background: var(--rojo-suave); }
+.resultado.entrada { border-color: var(--invertido); background: var(--tenue-10); }
+.resultado.salida { border-color: var(--tenue-22); background: transparent; }
 .resultado-nombre { font-size: 20px; font-weight: 700; margin: 10px 0 3px; }
 .resultado-dato { font-size: 13px; color: var(--texto-medio); }
 .resultado-hora { font-family: var(--mono); font-size: 27px; font-weight: 700; margin-top: 12px; letter-spacing: 0.02em; }
@@ -567,10 +569,10 @@ table.tabla tbody tr:last-child td { border-bottom: none; }
 .grafica { width: 100%; display: block; overflow: visible; }
 .grafica text { font-family: var(--fuente); fill: var(--texto-tenue); font-size: 10.5px; }
 .grafica .rejilla-linea { stroke: var(--borde); stroke-width: 1; }
-.grafica .barra-entrada { fill: var(--verde); }
-.grafica .barra-salida { fill: var(--rojo); }
+.grafica .barra-entrada { fill: var(--invertido); }
+.grafica .barra-salida { fill: var(--texto-tenue); }
 /* Serie unica (marcaciones totales): sin significado de entrada ni salida. */
-.grafica .barra-total { fill: var(--texto); }
+.grafica .barra-total { fill: var(--invertido); }
 
 .leyenda { display: flex; gap: 16px; align-items: center; font-size: 12px; color: var(--texto-medio); }
 .leyenda span { display: inline-flex; align-items: center; gap: 6px; }

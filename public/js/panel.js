@@ -67,9 +67,9 @@ async function pintar(dias) {
   vista.innerHTML = `
     <div class="rejilla rejilla-4">
       ${indicador('Personal activo', i.personalActivo, 'registrados en el sistema')}
-      ${indicador('Marcaron hoy', i.personasHoy, `${i.cobertura}% del personal`, 'azul')}
-      ${indicador('Presentes ahora', i.presentes, 'su ultima marca fue entrada', 'verde')}
-      ${indicador('Marcaciones hoy', i.marcacionesHoy, `${i.entradasHoy} entradas · ${i.salidasHoy} salidas`, 'rojo')}
+      ${indicador('Marcaron hoy', i.personasHoy, `${i.cobertura}% del personal`, 'medio')}
+      ${indicador('Presentes ahora', i.presentes, 'su ultima marca fue entrada', 'fuerte')}
+      ${indicador('Marcaciones hoy', i.marcacionesHoy, `${i.entradasHoy} entradas · ${i.salidasHoy} salidas`, 'suave')}
     </div>
 
     <div class="rejilla rejilla-2-1 mt-16">

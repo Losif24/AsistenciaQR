@@ -89,8 +89,10 @@ router.get(
 );
 
 const CABECERA = { backgroundColor: '#111318', color: '#FFFFFF', fontWeight: 'bold', align: 'left' };
-const VERDE = '#1B7F4B';
-const ROJO = '#B03A2E';
+// En el Excel la entrada va en negrita y la salida en gris: el archivo
+// tambien se imprime en blanco y negro.
+const ENTRADA = '#111318';
+const SALIDA = '#6F7681';
 
 router.get(
   '/excel',
@@ -115,7 +117,7 @@ router.get(
       hoja.push(
         COLUMNAS.map((c) =>
           c.key === 'tipo'
-            ? { value: fila.tipo, fontWeight: 'bold', color: r.tipo === 'entrada' ? VERDE : ROJO }
+            ? { value: fila.tipo, fontWeight: 'bold', color: r.tipo === 'entrada' ? ENTRADA : SALIDA }
             : { value: fila[c.key], type: String },
         ),
       );
