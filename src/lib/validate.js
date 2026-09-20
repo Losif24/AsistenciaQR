@@ -29,7 +29,7 @@ export function texto(value, campo, { min = 1, max = 120, requerido = true } = {
 
 /**
  * Normaliza el documento quitando puntos, espacios y guiones. Asi
- * "1.098.765-432" y "1098765432" son la misma persona y no se duplica.
+ * "1.234.567-890" y "1234567890" son la misma persona y no se duplica.
  */
 export function documento(value) {
   const v = texto(value, 'documento', { min: 3, max: 30 });

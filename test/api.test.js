@@ -128,10 +128,10 @@ describe('personal y asistencia', () => {
   it('registra una persona y le genera codigo QR', async () => {
     const { estado, cuerpo } = await admin('/api/personal', {
       metodo: 'POST',
-      datos: { nombre: 'rosa elena vargas', documento: '1.234.567-89', cargo: 'Auxiliar', area: 'Bodega' },
+      datos: { nombre: 'fulana de tal', documento: '1.234.567-89', cargo: 'Auxiliar', area: 'Bodega' },
     });
     assert.equal(estado, 201);
-    assert.equal(cuerpo.datos.nombre, 'ROSA ELENA VARGAS');
+    assert.equal(cuerpo.datos.nombre, 'FULANA DE TAL');
     assert.equal(cuerpo.datos.documento, '123456789');
     assert.match(cuerpo.datos.qr, /^data:image\/png;base64,/);
     // El QR lleva un token opaco, nunca el numero de documento.

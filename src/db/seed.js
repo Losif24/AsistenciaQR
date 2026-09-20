@@ -67,15 +67,24 @@ export async function seed({ verbose = true } = {}) {
   return { created: true, usuario: 'admin', clave: plain };
 }
 
+/**
+ * Personas de mentira, a proposito.
+ *
+ * Nombres y documentos deben leerse de inmediato como lo que son. Antes se
+ * usaban nombres verosimiles y documentos aleatorios de diez digitos que
+ * empiezan en 10, es decir el mismo rango de una cedula real: cualquiera de
+ * esos numeros podia coincidir con el de una persona de verdad, y estos datos
+ * terminan en capturas de pantalla publicadas.
+ */
 const NOMBRES = [
-  ['Ana Maria Restrepo', 'Coordinadora', 'Administracion'],
-  ['Carlos Andres Mejia', 'Analista', 'Sistemas'],
-  ['Diana Patricia Gomez', 'Auxiliar', 'Recursos Humanos'],
-  ['Esteban Ruiz Salazar', 'Tecnico', 'Mantenimiento'],
-  ['Fernanda Lopez Ortiz', 'Recepcionista', 'Administracion'],
-  ['Gabriel Torres Nino', 'Supervisor', 'Operaciones'],
-  ['Helena Quintero Diaz', 'Contadora', 'Finanzas'],
-  ['Ivan Dario Castro', 'Operario', 'Operaciones'],
+  ['Fulana de Tal', 'Coordinadora', 'Administracion'],
+  ['Mengano de Tal', 'Analista', 'Sistemas'],
+  ['Zutana de Tal', 'Auxiliar', 'Recursos Humanos'],
+  ['Perengano de Tal', 'Tecnico', 'Mantenimiento'],
+  ['Fulano de Cual', 'Recepcionista', 'Administracion'],
+  ['Mengana de Cual', 'Supervisor', 'Operaciones'],
+  ['Zutano de Cual', 'Contadora', 'Finanzas'],
+  ['Perengana de Cual', 'Operario', 'Operaciones'],
 ];
 
 /** Datos de ejemplo para ver el panel con informacion real. */
@@ -83,7 +92,7 @@ export async function seedDemo({ days = 14 } = {}) {
   const inserted = [];
 
   for (const [nombre, cargo, area] of NOMBRES) {
-    const documento = String(1000000000 + Math.floor(Math.random() * 99999999));
+    const documento = `DEMO${String(inserted.length + 1).padStart(4, '0')}`;
     const codigo = randomUUID();
     const png = await QRCode.toDataURL(codigo, { width: 320, margin: 1 });
     const { lastInsertRowid } = run(

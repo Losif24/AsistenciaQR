@@ -47,8 +47,8 @@ describe('contrasenas', () => {
 
 describe('documentos', () => {
   it('normaliza puntos, guiones y espacios a la misma clave', () => {
-    const esperado = '1098765432';
-    for (const variante of ['1.098.765-432', '1098765432', '1 098 765 432', '1.098.765.432']) {
+    const esperado = '1234567890';
+    for (const variante of ['1.234.567-890', '1234567890', '1 234 567 890', '1.234.567.890']) {
       assert.equal(documento(variante), esperado, `fallo con "${variante}"`);
     }
   });
