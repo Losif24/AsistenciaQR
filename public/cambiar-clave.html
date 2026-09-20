@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="dark">
+  <title>Cambiar contrasena · Asistencia QR</title>
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%23e8b33a'/%3E%3Ctext x='16' y='22' font-family='Arial' font-size='15' font-weight='bold' text-anchor='middle' fill='%23000'%3EQR%3C/text%3E%3C/svg%3E">
+  <link rel="stylesheet" href="/css/app.css">
+</head>
+<body>
+  <div class="ingreso">
+    <section class="ingreso-arte">
+      <div class="marca-titulo" style="margin-bottom:30px">
+        <span class="marca-glifo">QR</span><span>Asistencia QR</span>
+      </div>
+      <h1 class="ingreso-titular">Defina su contrasena</h1>
+      <p class="ingreso-bajada">
+        La clave con la que entro es temporal. Elija una propia antes de seguir:
+        nadie mas deberia conocerla, ni siquiera quien le creo el usuario.
+      </p>
+    </section>
+
+    <section class="ingreso-panel">
+      <div class="ingreso-caja">
+        <h2>Cambiar contrasena</h2>
+        <p>Minimo 8 caracteres, con al menos una letra y un numero.</p>
+
+        <form class="ingreso-form" id="formulario" novalidate>
+          <div class="campo">
+            <label for="actual">Contrasena actual</label>
+            <input id="actual" type="password" autocomplete="current-password" required autofocus>
+          </div>
+          <div class="campo">
+            <label for="nueva">Contrasena nueva</label>
+            <input id="nueva" type="password" autocomplete="new-password" required>
+          </div>
+          <div class="campo">
+            <label for="repetir">Repita la contrasena nueva</label>
+            <input id="repetir" type="password" autocomplete="new-password" required>
+          </div>
+          <div class="error" id="error"></div>
+          <button class="boton boton-principal boton-ancho" type="submit" id="enviar">Guardar y continuar</button>
+        </form>
+
+        <div class="ingreso-pie">
+          <a href="#" id="salir" class="tenue">Cerrar sesion</a>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <script type="module" src="/js/cambiar-clave.js"></script>
+</body>
+</html>

@@ -1,0 +1,19 @@
+# Normalizacion de fin de linea. Evita que el repositorio cambie de forma
+# segun el equipo desde el que se clone.
+* text=auto eol=lf
+
+# Los scripts de Windows necesitan CRLF: cmd.exe no interpreta bien un .bat
+# con finales de linea de Unix.
+*.bat  text eol=crlf
+*.cmd  text eol=crlf
+*.ps1  text eol=crlf
+*.iss  text eol=crlf
+
+# El script de Linux y macOS debe conservar LF.
+*.sh   text eol=lf
+
+# Binarios: que git no los toque.
+*.ico  binary
+*.png  binary
+*.db   binary
+*.xlsx binary

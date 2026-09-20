@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="dark">
+  <title>Iniciar sesion · Asistencia QR</title>
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%23e8b33a'/%3E%3Ctext x='16' y='22' font-family='Arial' font-size='15' font-weight='bold' text-anchor='middle' fill='%23000'%3EQR%3C/text%3E%3C/svg%3E">
+  <link rel="stylesheet" href="/css/app.css">
+</head>
+<body>
+  <div class="ingreso">
+    <section class="ingreso-arte">
+      <div class="marca-titulo" style="margin-bottom:30px">
+        <span class="marca-glifo">QR</span><span>Asistencia QR</span>
+      </div>
+      <h1 class="ingreso-titular">Control de asistencia sin complicaciones</h1>
+      <p class="ingreso-bajada">
+        Cada persona lleva su codigo. Se escanea, queda el registro con fecha y hora,
+        y el reporte sale en un clic.
+      </p>
+      <div class="ingreso-lista">
+        <div><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg><span>Entradas y salidas con codigo QR o por documento</span></div>
+        <div><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg><span>Reportes filtrados y exportables a Excel</span></div>
+        <div><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg><span>Base de datos propia, sin servicios de terceros</span></div>
+        <div><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg><span>Roles y registro de auditoria</span></div>
+      </div>
+    </section>
+
+    <section class="ingreso-panel">
+      <div class="ingreso-caja">
+        <h2>Iniciar sesion</h2>
+        <p>Ingrese con las credenciales que le entregaron.</p>
+
+        <form class="ingreso-form" id="formulario" autocomplete="on" novalidate>
+          <div class="campo">
+            <label for="usuario">Usuario</label>
+            <input id="usuario" name="usuario" type="text" autocomplete="username"
+                   placeholder="su.usuario" required autofocus>
+          </div>
+          <div class="campo">
+            <label for="clave">Contrasena</label>
+            <input id="clave" name="clave" type="password" autocomplete="current-password"
+                   placeholder="••••••••" required>
+          </div>
+          <div class="error" id="error"></div>
+          <button class="boton boton-principal boton-ancho" type="submit" id="enviar">Entrar</button>
+        </form>
+
+        <div class="ingreso-pie">
+          Programa de uso libre bajo licencia MIT.<br>
+          Si es su primer ingreso, revise el archivo de credenciales iniciales.
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <script type="module" src="/js/login.js"></script>
+</body>
+</html>

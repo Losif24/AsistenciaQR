@@ -1,0 +1,30 @@
+{
+  "name": "asistencia-qr",
+  "version": "2.0.0",
+  "description": "Sistema de control de asistencia por codigo QR. SQLite embebido, sin servidor de base de datos, listo para instalar en cualquier equipo.",
+  "type": "module",
+  "license": "MIT",
+  "engines": {
+    "node": ">=20.0.0"
+  },
+  "main": "src/server.js",
+  "scripts": {
+    "start": "node src/server.js",
+    "dev": "node --watch src/server.js",
+    "init-db": "node src/db/migrate.js",
+    "reset-db": "node src/db/migrate.js --reset",
+    "test": "node --test",
+    "demo": "node scripts/demo.js"
+  },
+  "dependencies": {
+    "cookie-parser": "^1.4.7",
+    "dotenv": "^16.4.7",
+    "express": "^4.21.2",
+    "express-rate-limit": "^7.5.0",
+    "helmet": "^8.0.0",
+    "html5-qrcode": "^2.3.8",
+    "node-sqlite3-wasm": "^0.8.30",
+    "qrcode": "^1.5.4",
+    "write-excel-file": "^4.1.1"
+  }
+}
